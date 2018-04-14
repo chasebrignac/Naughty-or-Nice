@@ -44,12 +44,14 @@ public class AppAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.installed_app_list, parent, false);
 
             listViewHolder.textInListView = (TextView)convertView.findViewById(R.id.list_app_name);
+            listViewHolder.newsInListView = (TextView)convertView.findViewById(R.id.list_app_news);
             listViewHolder.imageInListView = (ImageView)convertView.findViewById(R.id.app_icon);
             convertView.setTag(listViewHolder);
         }else{
             listViewHolder = (ViewHolder)convertView.getTag();
         }
         listViewHolder.textInListView.setText(listStorage.get(position).getName());
+        listViewHolder.newsInListView.setText(listStorage.get(position).getBadNews());
         listViewHolder.imageInListView.setImageDrawable(listStorage.get(position).getIcon());
 
         return convertView;
@@ -58,6 +60,7 @@ public class AppAdapter extends BaseAdapter {
     static class ViewHolder{
 
         TextView textInListView;
+        TextView newsInListView;
         ImageView imageInListView;
     }
 }
